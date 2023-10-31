@@ -8,8 +8,8 @@ import {
   PopoverContent,
   List,
   Tooltip,
-} from "@material-tailwind/react";
-import React, {
+} from '@material-tailwind/react';
+import {
   FC,
   MutableRefObject,
   useCallback,
@@ -17,10 +17,10 @@ import React, {
   useEffect,
   useMemo,
   useState,
-} from "react";
-import { flushSync } from "react-dom";
-import { OverlayContext } from "../../context/OverlayContext";
-import { ChildTreeContext, IChildTree } from "../../context/ChildTreeContext";
+} from 'react';
+import { flushSync } from 'react-dom';
+import { OverlayContext } from '../../context/OverlayContext';
+import { ChildTreeContext, IChildTree } from '../../context/ChildTreeContext';
 
 interface HeaderProps {
   overlayRef: MutableRefObject<HTMLDivElement | null>;
@@ -50,8 +50,8 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
     if (overlayRef.current) {
       const currentTransform = overlayRef.current.style.transform;
       const scale = +currentTransform.slice(
-        currentTransform.indexOf("(") + 1,
-        currentTransform.indexOf(")")
+        currentTransform.indexOf('(') + 1,
+        currentTransform.indexOf(')')
       );
 
       const updatedScale = scale - scaleValue > 0 ? scale - scaleValue : scale;
@@ -64,8 +64,8 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
     if (overlayRef.current) {
       const currentTransform = overlayRef.current.style.transform;
       const scale = +currentTransform.slice(
-        currentTransform.indexOf("(") + 1,
-        currentTransform.indexOf(")")
+        currentTransform.indexOf('(') + 1,
+        currentTransform.indexOf(')')
       );
 
       const updatedScale = scale + scaleValue < 3 ? scale + scaleValue : scale;
@@ -85,7 +85,7 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
   const childCount = useMemo(() => {
     let count = 0;
     const recurse = (tree: IChildTree) => {
-      Object.keys(tree).forEach((key) => {
+      Object.keys(tree).forEach(key => {
         ++count;
         if (Object.keys(tree[key].children).length) {
           recurse(tree[key].children);
@@ -97,25 +97,25 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
   }, [tree]);
 
   useEffect(() => {
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener('keydown', e => {
       const preventDefault = (func: () => void) => {
         e.preventDefault();
         func();
       };
 
-      e.key === "=" && preventDefault(handleZoomIn);
-      e.key === "-" && preventDefault(handleZoomOut);
-      e.key === "c" && preventDefault(handleCenterLayout);
+      e.key === '=' && preventDefault(handleZoomIn);
+      e.key === '-' && preventDefault(handleZoomOut);
+      e.key === 'c' && preventDefault(handleCenterLayout);
     });
   }, []);
 
   return (
     <Navbar
       className={
-        "fixed p-3 z-50 mx-auto min-w-full flex justify-between rounded-none bg-white"
+        'fixed p-3 z-50 mx-auto min-w-full flex justify-between rounded-none bg-white'
       }
     >
-      <div className={"flex items-center"}>
+      <div className={'flex items-center'}>
         <Typography
           as="li"
           variant="h4"
@@ -126,8 +126,8 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
         </Typography>
         <Chip value={childCount} />
       </div>
-      <div className={"flex gap-1"}>
-        <Tooltip placement={"bottom"} content="Center: (c)">
+      <div className={'flex gap-1'}>
+        <Tooltip placement={'bottom'} content="Center: (c)">
           <IconButton onClick={handleCenterLayout}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -150,11 +150,11 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
             </svg>
           </IconButton>
         </Tooltip>
-        <Tooltip placement={"bottom"} content="ZoomOut: (-)">
+        <Tooltip placement={'bottom'} content="ZoomOut: (-)">
           <IconButton
             onClick={handleZoomOut}
-            variant={"outlined"}
-            color={"gray"}
+            variant={'outlined'}
+            color={'gray'}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -177,21 +177,21 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
           <PopoverHandler>
             <div
               className={
-                "border cursor-pointer rounded-md border-gray-500 flex items-center text-gray-500 px-4"
+                'border cursor-pointer rounded-md border-gray-500 flex items-center text-gray-500 px-4'
               }
             >
-              <Typography as={"span"}>{selectValue}%</Typography>
+              <Typography as={'span'}>{selectValue}%</Typography>
             </div>
           </PopoverHandler>
-          <PopoverContent className={"z-50 h-60 w-28 overflow-auto p-0"}>
-            <List defaultValue={""}>
+          <PopoverContent className={'z-50 h-60 w-28 overflow-auto p-0'}>
+            <List defaultValue={''}>
               {Array.from({ length: 29 }).map((_, i) => {
                 const count = i + 1;
                 return (
                   <div
                     key={i}
                     className={`w-24 rounded p-2 cursor-pointer transition hover:bg-opacity-80 ${
-                      selectValue === count * 10 ? "bg-blue-gray-50 " : ""
+                      selectValue === count * 10 ? 'bg-blue-gray-50 ' : ''
                     }`}
                     onClick={() => handleSelectZoom(count * 10)}
                   >
@@ -202,11 +202,11 @@ const Header: FC<HeaderProps> = ({ overlayRef }) => {
             </List>
           </PopoverContent>
         </Popover>
-        <Tooltip placement={"bottom"} content="ZoomIn: (+)">
+        <Tooltip placement={'bottom'} content="ZoomIn: (+)">
           <IconButton
             onClick={handleZoomIn}
-            variant={"outlined"}
-            color={"gray"}
+            variant={'outlined'}
+            color={'gray'}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

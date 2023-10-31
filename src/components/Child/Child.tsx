@@ -1,5 +1,5 @@
-import React, { Suspense, useCallback, useEffect, useState } from "react";
-import { IconButton, Input, Spinner } from "@material-tailwind/react";
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
+import { IconButton, Input, Spinner } from '@material-tailwind/react';
 
 interface ChildProps {
   text: string;
@@ -52,7 +52,7 @@ const Child: React.FC<ChildProps> = ({
 
   return (
     <form
-      onSubmit={(e) => {
+      onSubmit={e => {
         e.preventDefault();
         if (isEdit && !isDefaultChild) {
           handleSave();
@@ -60,8 +60,8 @@ const Child: React.FC<ChildProps> = ({
       }}
       className={`flex bg-blue-gray-50 border items-center gap-1 p-2 rounded-md ${
         isDefaultChild
-          ? "border-dashed border-blue-gray-200"
-          : "border-blue-gray-100"
+          ? 'border-dashed border-blue-gray-200'
+          : 'border-blue-gray-100'
       }`}
     >
       <Suspense
@@ -76,9 +76,9 @@ const Child: React.FC<ChildProps> = ({
             disabled={!(isEdit && !isDefaultChild)}
             autoFocus
             maxLength={23}
-            label={"Category name"}
+            label={'Category name'}
             value={itemName}
-            onChange={(event) => {
+            onChange={event => {
               setItemName(event.target.value);
             }}
           />
@@ -86,9 +86,9 @@ const Child: React.FC<ChildProps> = ({
         <div className="flex gap-1">
           {isShowAddIcon && (
             <IconButton
-              type={"button"}
-              color={"green"}
-              size={"sm"}
+              type={'button'}
+              color={'green'}
+              size={'sm'}
               onClick={addChild}
             >
               <svg
@@ -108,7 +108,7 @@ const Child: React.FC<ChildProps> = ({
             </IconButton>
           )}
           {isShowEditIcon && (
-            <IconButton type={"button"} size={"sm"} onClick={handleEdit}>
+            <IconButton type={'button'} size={'sm'} onClick={handleEdit}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -127,9 +127,9 @@ const Child: React.FC<ChildProps> = ({
           )}
           {!isDefaultChild && (
             <IconButton
-              type={"button"}
-              size={"sm"}
-              color={`${isEdit && text ? "orange" : "red"}`}
+              type={'button'}
+              size={'sm'}
+              color={`${isEdit && text ? 'orange' : 'red'}`}
               onClick={isEdit && text ? handleCancelEdit : deleteChild}
             >
               {isEdit && text ? (
@@ -166,7 +166,7 @@ const Child: React.FC<ChildProps> = ({
             </IconButton>
           )}
           {isShowSaveIcon && (
-            <IconButton type={"button"} size={"sm"} onClick={handleSave}>
+            <IconButton type={'button'} size={'sm'} onClick={handleSave}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
