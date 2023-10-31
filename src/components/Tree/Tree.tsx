@@ -1,7 +1,7 @@
-import { FC, memo } from "react";
-import { IChildTree } from "../../context/ChildTreeContext";
-import { useChildTree } from "../../hooks/useChildTree";
-import Child from "../Child/Child";
+import { FC, memo } from 'react';
+import { IChildTree } from '../../context/ChildTreeContext';
+import { useChildTree } from '../../hooks/useChildTree';
+import Child from '../Child/Child';
 
 const Tree: FC<{ keys?: string[]; tree: IChildTree }> = ({
   keys = [],
@@ -11,14 +11,14 @@ const Tree: FC<{ keys?: string[]; tree: IChildTree }> = ({
 
   return (
     <>
-      {Object.keys(tree).map((key) => {
+      {Object.keys(tree).map(key => {
         const item = tree[key];
         const childrenCount = Object.keys(item.children).length;
         const isMoreThenOneElement = Object.keys(tree).length > 1;
         const isItemHasMoreThenOneElement =
           Object.keys(item.children).length > 1;
         const keysArr = [...keys, key];
-        const currentKey = keysArr.join("/");
+        const currentKey = keysArr.join('/');
         return (
           <div
             className={`px-2 relative flex flex-col items-center [&>div.horizontal-line]:last:w-1/2 [&>div.horizontal-line]:first:w-1/2 [&>div.horizontal-line]:first:right-0 [&>div.horizontal-line]:last:left-0`}
@@ -42,7 +42,7 @@ const Tree: FC<{ keys?: string[]; tree: IChildTree }> = ({
                 handleAdd(currentKey);
               }}
               deleteChild={() => handleDelete(currentKey)}
-              onChange={(value) => {
+              onChange={value => {
                 handleEdit(currentKey, value);
               }}
             />

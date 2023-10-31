@@ -1,35 +1,35 @@
-import { CSSProperties, FC } from "react";
-import { IconButton } from "@material-tailwind/react";
-import { IPosition } from "../../context/OverlayContext";
+import { CSSProperties, FC } from 'react';
+import { IconButton } from '@material-tailwind/react';
+import { IPosition } from '../../context/OverlayContext';
 
 const styleTop: CSSProperties = {
-  position: "fixed",
+  position: 'fixed',
   zIndex: 100,
   top: 68,
-  left: "50%",
-  transform: "translateX(-50%)",
+  left: '50%',
+  transform: 'translateX(-50%)',
 };
 const styleRight: CSSProperties = {
-  position: "fixed",
+  position: 'fixed',
   zIndex: 100,
-  top: "50%",
+  top: '50%',
   right: 0,
-  transform: "translateY(-50%)",
+  transform: 'translateY(-50%)',
 };
 
 const styleBottom: CSSProperties = {
-  position: "fixed",
+  position: 'fixed',
   zIndex: 100,
   bottom: 0,
-  left: "50%",
-  transform: "translateX(-50%)",
+  left: '50%',
+  transform: 'translateX(-50%)',
 };
 const styleLeft: CSSProperties = {
-  position: "fixed",
+  position: 'fixed',
   zIndex: 100,
-  top: "50%",
+  top: '50%',
   left: 0,
-  transform: "translateY(-50%)",
+  transform: 'translateY(-50%)',
 };
 
 interface OveredButtonProps {
@@ -41,10 +41,10 @@ const OverlayNavigation: FC<OveredButtonProps> = ({ onArrowClick }) => {
     <>
       <div style={styleTop}>
         <IconButton
-          onClick={() => onArrowClick("y", -30)}
-          size={"sm"}
-          id={"top"}
-          color={"gray"}
+          onClick={() => onArrowClick('y', -30)}
+          size={'sm'}
+          id={'top'}
+          color={'gray'}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,10 +64,10 @@ const OverlayNavigation: FC<OveredButtonProps> = ({ onArrowClick }) => {
       </div>
       <div style={styleRight}>
         <IconButton
-          onClick={() => onArrowClick("x", 30)}
-          size={"sm"}
-          id={"right"}
-          color={"gray"}
+          onClick={() => onArrowClick('x', 30)}
+          size={'sm'}
+          id={'right'}
+          color={'gray'}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,10 +87,10 @@ const OverlayNavigation: FC<OveredButtonProps> = ({ onArrowClick }) => {
       </div>
       <div style={styleBottom}>
         <IconButton
-          onClick={() => onArrowClick("y", 30)}
-          size={"sm"}
-          id={"bottom"}
-          color={"gray"}
+          onClick={() => onArrowClick('y', 30)}
+          size={'sm'}
+          id={'bottom'}
+          color={'gray'}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -110,10 +110,10 @@ const OverlayNavigation: FC<OveredButtonProps> = ({ onArrowClick }) => {
       </div>
       <div style={styleLeft}>
         <IconButton
-          onClick={() => onArrowClick("x", -30)}
-          id={"left"}
-          size={"sm"}
-          color={"gray"}
+          onClick={() => onArrowClick('x', -30)}
+          id={'left'}
+          size={'sm'}
+          color={'gray'}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

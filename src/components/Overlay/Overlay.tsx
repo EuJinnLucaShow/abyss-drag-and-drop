@@ -6,14 +6,14 @@ import {
   useContext,
   useEffect,
   useLayoutEffect,
-} from "react";
-import OverlayNavigation from "../OverlayNavigation/OverlayNavigation";
-import { ChildTreeContext } from "../../context/ChildTreeContext";
-import Tree from "../Tree/Tree";
-import { useDragging } from "../../hooks/useDragging";
-import { flushSync } from "react-dom";
-import { IPosition, OverlayContext } from "../../context/OverlayContext";
-import { Spinner } from "@material-tailwind/react";
+} from 'react';
+import OverlayNavigation from '../OverlayNavigation/OverlayNavigation';
+import { ChildTreeContext } from '../../context/ChildTreeContext';
+import Tree from '../Tree/Tree';
+import { useDragging } from '../../hooks/useDragging';
+import { flushSync } from 'react-dom';
+import { IPosition, OverlayContext } from '../../context/OverlayContext';
+import { Spinner } from '@material-tailwind/react';
 
 interface OverlayProps {
   overlayRef: MutableRefObject<HTMLDivElement | null>;
@@ -36,11 +36,11 @@ const Overlay: FC<OverlayProps> = ({ overlayRef }) => {
 
   useEffect(() => {
     if (dragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
     } else {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
     }
   }, [dragging]);
 
@@ -50,7 +50,7 @@ const Overlay: FC<OverlayProps> = ({ overlayRef }) => {
         setIsCentering?.(true);
       });
 
-      setPosition?.((prevPosition) => {
+      setPosition?.(prevPosition => {
         const updatedPosition = { ...prevPosition };
         updatedPosition[coordinate] += value;
 
@@ -65,7 +65,7 @@ const Overlay: FC<OverlayProps> = ({ overlayRef }) => {
   );
 
   return (
-    <div className={"relative h-full flex-grow"}>
+    <div className={'relative h-full flex-grow'}>
       <OverlayNavigation onArrowClick={handleNavigate} />
       <Suspense
         fallback={
@@ -78,11 +78,11 @@ const Overlay: FC<OverlayProps> = ({ overlayRef }) => {
           style={{
             top: position.y,
             left: position.x,
-            transform: "scale(1.0)",
+            transform: 'scale(1.0)',
           }}
           ref={overlayRef}
           className={`overflow-hidden absolute cursor-move ${
-            dragging ? "" : "transition-all"
+            dragging ? '' : 'transition-all'
           } ease-in`}
           onMouseDown={handleMouseDown}
         >
