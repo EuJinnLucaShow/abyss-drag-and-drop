@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/abyss-drag-and-drop/static/css/main.56a564dd.css",
+    "main.js": "/abyss-drag-and-drop/static/js/main.693ea0f4.js",
+    "index.html": "/abyss-drag-and-drop/index.html",
+    "main.56a564dd.css.map": "/abyss-drag-and-drop/static/css/main.56a564dd.css.map",
+    "main.693ea0f4.js.map": "/abyss-drag-and-drop/static/js/main.693ea0f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56a564dd.css",
+    "static/js/main.693ea0f4.js"
+  ]
+}
